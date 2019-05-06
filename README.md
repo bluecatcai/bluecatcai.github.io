@@ -15,3 +15,5 @@
 [菜单](https://bluecatcai.github.io/07)
 
 [图片特效](https://bluecatcai.github.io/08)
+
+[倍数放大镜](https://bluecatcai.github.io/09)
