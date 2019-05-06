@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="can" width="500" height="500" ></canvas>
+		
+		<script>
+			var can=document.getElementById("can");
+			var con=can.getContext('2d');
+			time();
+			setInterval(time,1000);
+			function time(){
+				con.clearRect(0,0,500,500);//清除矩形
+				//先绘制一个园
+				con.beginPath();
+				con.lineWidth=10;
+				con.arc(250,250,200,0,Math.PI*2,false);
+				con.closePath();
+				con.stroke();
+			
+				//时钟刻度
+				for(var i=0;i<12;i++){
+					//保存状态
+					con.save();
+					con.translate(250,250);
+					con.beginPath();
+					con.rotate(Math.PI/6 * i);
+					//得到5到60的数值
+					var textTime = i==0?60:i*5;
+					con.font = '16px 宋体';
+					con.textAlign = "center";
+					con.fillText(textTime,0,-155)
+					
+					
+					//时钟的刻度
+					con.moveTo(0,-200);
+					con.lineTo(0,-170);
+					con.lineWidth = 8;
+					con.stroke();
+					con.closePath();
+					//每次取出一个状态
+					con.restore();
+				}
+			
+				//颜色相同可直接覆盖在时钟上
+				//分钟刻度
+				for(var i=0;i<60;i++){
+					//保存状态
+					con.save();
+					con.translate(250,250);
+					con.beginPath();
+					con.rotate(Math.PI/30* i);
+					
+					//分钟的刻度
+					con.moveTo(0,-200);
+					con.lineTo(0,-180);
+					con.lineWidth = 5;
+					con.stroke();
+					con.closePath();
+					//每次取出一个状态
+					con.restore();
+				}
+				//设置时钟品牌文字
+				con.textAlign="center";
+				con.font="16px 宋体";
+				con.fillText("Daniel Wellingtons",250,150);
+			
+				//获得时间日期对象
+				var data=new Date();
+				var h=data.getHours();//获得小时
+			  	h=h>12?h-12:h;//换算成12时
+			  
+			  	var	min = data.getMinutes();//获得分钟
+				var	sec = data.getSeconds();//获得秒数
+				//换算为真实的刻度
+				h=min/60+h;
+				min=sec/60+min;
+				
+				//绘制时针
+				con.save();
+				//把(0,0)中心点移到画布的中间
+				con.translate(250,250);
+				con.rotate(Math.PI/6 * h);//Math.PI=360度
+				con.beginPath();
+				
+				con.moveTo(0,-130);
+				con.lineTo(0,15);
+				con.lineWidth = 4;
+				con.lineCap = 'round';
+				con.stroke();
+				con.closePath();
+				//恢复
+				con.restore();
+				
+				//绘制分针
+				con.save();
+				//把(0,0)中心点移到画布的中间
+				con.translate(250,250);
+				con.rotate(Math.PI/30 * min);//Math.PI=360度
+				con.beginPath();
+				
+				con.moveTo(0,-140);
+				con.lineTo(0,15);
+				con.lineWidth = 3;
+				con.lineCap = 'round';
+				con.stroke();
+				con.closePath();
+				//恢复
+				con.restore();
+				
+				//绘制秒针
+				con.save();
+				//把(0,0)中心点移到画布的中间
+				con.translate(250,250);
+				con.rotate(Math.PI/30 * sec);
+				con.beginPath();
+				
+				con.moveTo(0,-150);
+				con.lineTo(0,25);
+				con.lineWidth = 1.5;
+				con.lineCap = 'round';
+				con.strokeStyle = 'red';//秒针颜色
+				con.stroke();
+				con.closePath();
+				
+				//秒针上的圆
+				con.beginPath();
+				con.arc(0,-130,5,0,Math.PI*2);
+				con.lineWidth = 1;
+				con.fillStyle = 'white';
+				con.strokeStyle = 'red';
+				con.fill()
+				con.stroke();
+				con.closePath();
+				
+				//恢复
+				con.restore();
+				
+				con.save();
+				con.translate(250,250);
+				//装饰圆 
+				con.beginPath();
+				con.arc(0,0,5,0,Math.PI*2);
+				con.lineWidth = 1;
+				con.fillStyle = 'white';
+				con.strokeStyle = 'red';
+				con.fill()
+				con.stroke();
+				con.closePath();
+				con.restore();
+			}
+		</script>
+	</body>
+</html>

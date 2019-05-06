@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="300" height="200"></canvas>
+		<style type="text/css">
+			#canvas {
+				border: 1px solid red;
+			}
+		</style>
+		<!-- <script type="text/javascript">
+			var canvas = document.getElementById("canvas")
+			var ctx = canvas.getContext('2d')
+			
+			// 设置矩形填充颜色
+			ctx.fillStyle = 'orange'
+			// 填充矩形
+			// ctx.fillRect(0,0,82,126)
+			
+			// ctx.fillRect(10,10,10,10)
+			for (var i = 0; i < 10; i++) {
+				ctx.fillRect(10 * i ,10 * i,10,10)
+			}
+			// 清除画布 矩形
+			ctx.clearRect(0,0,15,15)
+			
+			// 矩形线框
+			ctx.strokeStyle = 'red'
+			ctx.strokeRect(0,0,150,150)
+			
+			// 线
+			ctx.strokeStyle = 'blue'
+			ctx.moveTo(0,0)
+			ctx.lineTo(100,100)
+			ctx.lineTo(0,100)
+			ctx.lineTo(100,0)
+			ctx.moveTo(100,50)
+			ctx.lineTo(0,50)
+			ctx.stroke()
+			
+		</script> -->
+
+		<!-- <script type="text/javascript">
+			var canvas = document.getElementById("canvas")
+			var ctx = canvas.getContext('2d')
+			ctx.beginPath()
+			ctx.arc(100,100,50,0,Math.PI * 2)
+			ctx.strokeStyle = 'red'
+			ctx.stroke()
+			ctx.fillStyle = 'lightblue'
+			ctx.fill()
+			
+			// ctx.arc(x,y,r,3,start, end, boolen)
+			// 重新开始一个路径
+			ctx.beginPath()
+			ctx.arc(200,100,30,-1/2 * Math.PI, 2.9/2*Math.PI, false)
+			ctx.strokeStyle = 'red'
+			ctx.stroke()
+			
+		</script> -->
+
+		<!-- <script type="text/javascript">
+			var canvas = document.getElementById("canvas")
+			var ctx = canvas.getContext('2d')
+			
+			ctx.beginPath()
+			// ctx.arc(200,100,30,-1/2 * Math.PI, 3/2*Math.PI, false)
+			ctx.strokeStyle = 'red'
+			ctx.stroke()
+			ctx.lineWidth = 1
+			var x = -1
+			setInterval(function () {
+				// 清空画布
+				ctx.clearRect(0,0,300,200)
+				
+				x += 0.1
+				if (x >= 3 * 0.7) {
+					x = 3 * 0.7
+				}
+				ctx.beginPath()
+				ctx.arc(200,100,30,-1/2 * Math.PI, x/2*Math.PI, false)
+				ctx.stroke()
+			},100)
+			
+		</script> -->
+		
+		
+		<!-- <script type="text/javascript">
+			var canvas = document.getElementById("canvas")
+			var ctx = canvas.getContext('2d')
+			
+			ctx.beginPath()
+			ctx.moveTo(200,100)
+			// ctx.lineTo()
+			ctx.arc(200,100,30,0, 1/2*Math.PI, false)
+			ctx.strokeStyle = 'red'
+			ctx.fill()
+			
+		</script> -->
+		
+		
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas")
+			var ctx = canvas.getContext('2d')
+			
+			ctx.beginPath()
+			// ctx.lineTo()
+			ctx.arc(200,100,80,0, 1/2*Math.PI, false)
+			
+			ctx.strokeStyle = 'red'
+			ctx.lineWidth = 10
+			// ctx.lineCap = 'round'
+			ctx.stroke()
+			
+// 			ctx.beginPath()
+// 			ctx.arc(200,180,5,0, 2*Math.PI)
+// 			ctx.fillStyle = 'red'
+// 			ctx.fill()
+			
+		</script>
+		<img style="display: none;" src="http://www.runoob.com/try/demo_source/img_the_scream.jpg">
+		<!-- <script type="text/javascript">
+			var canvas = document.getElementById("canvas")
+			var ctx = canvas.getContext('2d')
+
+			ctx.font = "16px 微软雅黑"
+			ctx.fillText("Hello World", 0, 16)
+			ctx.font = "30px 微软雅黑"
+			ctx.lineWidth = 10
+			ctx.strokeText("Hello World", 0, 60)
+
+			// ctx.drawImage(document.querySelector('img'), 0, 0)
+		</script> -->
+		
+		<!-- http://sc.chinaz.com/jiaobendemo.aspx?downloadid=1201730605887 -->
+	</bod
