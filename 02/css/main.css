@@ -1,0 +1,226 @@
+.card {
+  transition: all 2s;
+}
+
+.card.animation {
+  transform: translateY(100px);
+}
+
+/* .card:last-child.animation {
+  transform: translateX(100px)
+} */
+
+.mt-3 {
+  transition: all 2s;
+}
+.mt-3.animation {
+  transform: translateY(100px)
+}
+
+
+.x-header {
+  background: #0079c1;
+  /* overflow: hidden; */
+  height: 600px;
+}
+#diyige {
+ background:url(../imgs/1.jpg) no-repeat ;
+ background-size:100%;
+}
+
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.x-header .x-top {
+  line-height: 70px;
+}
+
+.x-header .x-top ul {
+  float: right;
+}
+
+.x-header .x-top ul li {
+  float: left;
+  color: white;
+}
+
+.x-header .navbar ul.nav li {
+  text-align: center;
+}
+
+.row h2 {
+  font-size: 3em;
+  color: white;
+  text-align: center;
+  letter-spacing: 6px;
+  line-height: 1.5;
+
+}
+
+.row p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.8em;
+  letter-spacing: 1px;
+  color: #ddd;
+  /* text-align: center; */
+  margin-top: 1rem !important;
+}
+
+#ooo {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+#mmm {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+#mmm:nth-child(2){
+ margin-bottom: 100px;
+}
+#mmm:nth-child(3){
+  background: #0079c1;
+}
+
+
+#nnn {
+  margin: 10px;
+  width: 250px;
+  height: 200px;
+  padding-top: 20%;
+}
+#nnn span {
+  color:yellow;
+}
+#nnn h4 {
+color: aliceblue;
+}
+#nnn .riqi {
+  color: aliceblue;
+}
+
+#bbb {
+  margin: 10px;
+  width: 250px;
+  height: 200px;
+  padding-top: 20%;
+}
+#bbb span {
+  color:yellow;
+}
+#bbb h4 {
+  color: aliceblue;
+  }
+#bbb .riqi {
+  color: aliceblue;
+}
+
+#erl {
+  background: #0079c1;
+}
+
+#duan {
+  text-align: center;
+  color: aqua;
+
+}
+
+#uiu {
+  background: #0079c1;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+#yi {
+  font-size: 36px;
+  color: #ddd;
+ 
+}
+#erl {
+  padding: 10px;
+  border-radius: 10%;
+}
+/* #wenzi {
+  font-size: 24px;
+} */
+.qqq {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.bbb {
+  float: left;
+ margin: 10px;
+ background: no-repeat;
+}
+#biaoti {
+  margin-right: 15px;
+}
+.zhen {
+	/* padding: 0 0 70px 0; */
+	overflow: hidden;
+	background: black;
+}
+
+/* #mmm .zhen .fuk {
+	color: black;
+	width: 1170px;
+	
+} */
+
+.dahao {
+	padding: 50px 0 0 249px;
+	width: 720px;
+	height: 60px;
+	/* text-align: center; */
+	margin-left: 140px;
+}
+
+.dahao a {
+	margin-left: 20px;
+}
+
+.dahao i {
+	
+	width: 55px;
+	height: 55px;
+	display: inline-block;
+	margin: 0 0 0 .1em;
+}
+
+
+
+.ini {
+	margin-top: 20px;
+	margin-left: 338px;
+	width: 720px;
+	height: 60px;
+}
+
+.ini li {
+  color: white;
+	float: left;
+	list-style: none;
+	margin-left: 30px;
+}
+.okok{
+	margin-left: 170px;
+}
+
+.okok a {
+	font-size: 20px;
+	text-decoration: none;
+	color: limegreen;
+}
+.okok p {
+  /* margin: 0px 50px 10px; */
+  color: white;
+}
+
+.okok a:hover {
+	color: white;
+	text-decoration: underline;
+}

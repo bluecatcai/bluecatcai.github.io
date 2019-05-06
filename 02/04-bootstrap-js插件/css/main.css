@@ -1,0 +1,15 @@
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.x-header .x-top ul {
+  float: right;
+}
+.x-header .x-top ul li {
+  float: left;
+}
+.x-header .navbar ul.nav li {
+  text-align: center;
+}
+/*# sourceMappingURL=./main.css.map */
