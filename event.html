@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+</head>
+
+<body>
+    <button>按钮</button>
+    <div class="box">box</div>
+    <script>
+        // $('button').bind('click mouseover', function (e) {
+        //     console.log('xxx');
+            
+        // });
+        // $('button').bind('click',{msg:'xxxxxx'}, function (e) {
+        //     console.log(e.data.msg);
+        // });
+
+        // document.querySelector('.box').onclick = function (e) {
+        //     console.log(e);
+        // }
+        
+        $('button').bind({
+            'click': function () {
+                console.log('click');
+            },
+            'mouseover': function () {
+                console.log('mouseover');
+            }
+        });
+
+    </script>
+
+    <form action="">
+        <input type="text">
+        <input type="text">
+    </form>
+    <button class="focus">focus</button>
+    <script>
+        $('form input').blur(function (e) {
+            console.log('xxx');
+        });
+        $('.focus').click(function (e) {
+            $('form input').first().focus()
+        });
+
+        $('form input').bind('input', function () {
+            console.log($(this).val());
+        });
+    </script>
+
+    <div class="bigbox">
+        <button>生成元素</button>
+    </div>
+    <style>
+        .bigbox {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+    <script>
+        // $('.bigbox button').click(function () { 
+        //     $('.bigbox').append('<h3>生成的标题</h3>')
+        // });
+        $('.bigbox button').one('click', function (e) {
+            $('.bigbox').append('<h3>生成的标题</h3>')
+            e.stopPropagation()
+        });
+
+        // $('.bigbox h3').click(function () { 
+        //     console.log('h3事件触发');
+        // });
+
+        // $('.bigbox h3').bind('click',function () { 
+        //     console.log('h3事件触发');
+        // });
+
+        // $('.bigbox').delegate('h3','click',function (e) { 
+        //     console.log('h3事件触发');
+        //     console.log(e.delegateTarget);
+        // });
+
+        // $('.bigbox h3').on('click' ,function (e) { 
+        //     console.log('h3事件触发'); 
+        // });
+        // $('.bigbox').on('click', 'h3' ,function (e) { 
+        //     console.log('h3事件触发'); 
+        // });
+        // $('.bigbox').on('click' ,function (e) {
+        //     console.log('h3事件触发'); 
+        // });
+        $('.bigbox').on({
+            'click': function () {
+                console.log('h3事件触发click');
+            },
+            'mouseover': function () {
+                console.log('h3事件触发mouseover');
+            }
+        }, 'h3');
+
+        $('.bigbox h3').trigger('click')
+
+
+        // $('.bigbox').hover(function () {
+        //     console.log('in');
+        // },function () {
+        //     console.log('out');
+        // })
+
+        // $('.bigbox').mouseover(function () {
+        //     console.log('in');
+        // }).mouseout(function () {
+        //     console.log('out');
+        // })
+
+        $('.bigbox').on({
+            'mouseover': function () {
+                console.log('in');
+            },
+            'mouseout': function () {
+                console.log('in');
+            }
+        })
+    </script>
+</body>
+
+</html>
