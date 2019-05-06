@@ -1,0 +1,324 @@
+body,
+html {
+    margin: 0;
+    height: 100%;
+}
+
+@var1: 200px;
+@var2: 100px;
+@var3: 150px;
+@var4: 240px;
+@var5: 70px;
+@var6: 70px;
+@var7: 100px;
+
+
+.stage {
+    width: 100%;
+    height: 100%;
+    background: lightblue;
+
+    // 水平垂直居中 弹性盒子好处理
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    // 子元素 card 要 3d 变形（旋转）加上透视
+    perspective: 1500px;
+    transform-style: preserve-3d;
+    // transform: rotateX(0deg) rotateY(-30deg);
+
+
+    .card {
+        width: 300px;
+        height: 500px;
+        background: url("./600x600.jpg") no-repeat center;
+        background-size: cover;
+        border-radius: 20px;
+        transition: all 1s cubic-bezier(0.49, 0.15, 0.46, 1.15);
+
+
+        // 沿着X轴旋转的时候 调整一下X轴的基准线
+        transform-origin: center center 100px;
+        transform: translateZ(200px) rotateX(0deg);
+        // 子元素两个伪元素 要 3d 变形 （前后分层 调整z轴位置）
+        transform-style: preserve-3d;
+
+        position: relative;
+
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        text-align: center;
+
+        >* {
+            flex-basis: 100%;
+        }
+
+        .child {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            transition: inherit;
+        }
+
+        &::before {
+            .child;
+            background: rgba(27, 26, 26, 0.355);
+        }
+
+        &::after {
+            .child;
+            background: #111;
+            transform: translateZ(-20px);
+        }
+
+        .chart {
+            display: flex;
+            justify-content: center;
+
+            transition: inherit;
+
+            .bar {
+                width: 20px;
+                height: 20px;
+                display: block;
+                // background: red;
+                margin: 10px;
+                // overflow: hidden;
+                transform: rotate(-45deg)translateZ(10px);
+
+                // 里面的两个面又要3d变形
+                transform-style: preserve-3d;
+                perspective: 1500px;
+
+                transition: inherit;
+
+                // position: relative;
+                i {
+                    width: 20px;
+                    height: 20px;
+                    display: block;
+                    background: white;
+                    transition: inherit;
+
+                }
+
+
+                &::before {
+                    content: '';
+                    display: block;
+                    width: 0px;
+                    height: 20px;
+                    background: #7abfff;
+                    transform-origin: left;
+                    transform: rotateY(-90deg);
+                    transition: inherit;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+
+                &::after {
+                    content: '';
+                    display: block;
+                    width: 20px;
+                    height: 0px;
+                    background: #8091f0;
+                    transform-origin: bottom;
+                    transform: rotateX(-90deg);
+                    transition: inherit;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                }
+            }
+        }
+
+        h2 {
+            color: aliceblue;
+            transform: translateZ(20px);
+            transition: all 0.5s;
+        }
+
+        p {
+            color: aliceblue;
+            transform: translateZ(20px);
+            transition: all 0.5s;
+        }
+
+        h3 {
+            font-size: 36px;
+            line-height: 36px;
+            transform: translateZ(20px);
+            transition: all 1s;
+            color: aliceblue;
+        }
+
+
+        &.active {
+            transform: translateZ(220px) rotateX(60deg);
+
+            &::before {
+                box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+            }
+
+            &::after {
+                box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.5);
+            }
+
+            h3 {
+                transform: translateZ(20px) translateY(50px);
+            }
+
+            h2 {
+                opacity: 0;
+                // transition: all 0.5s;
+                transform: translateZ(30px);
+
+            }
+
+            p {
+                opacity: 0;
+                // transition: all 0.5s;
+                transform: translateZ(30px);
+
+            }
+
+
+
+            .chart {
+                // .bar {
+                //     i {
+                //         transform: translateZ(300px);
+                //     }
+                //     &::before {
+                //         width: 300px;
+                //     }
+                //     &::after {
+                //         height: 300px;
+                //     }
+                // }
+
+                .bar:nth-child(1) {
+                    i {
+                        transform: translateZ(@var1);
+                    }
+
+                    &::before {
+                        width: @var1;
+                        content: '20,000';
+                        text-align: right;
+                    }
+
+                    &::after {
+                        height: @var1;
+                    }
+                }
+
+                .bar:nth-child(2) {
+                    i {
+                        transform: translateZ(@var2);
+                    }
+
+                    &::before {
+                        width: @var2;
+                        content: '10,000';
+                        text-align: right;
+                    }
+
+                    &::after {
+                        height: @var2;
+                    }
+                }
+
+                .bar:nth-child(3) {
+                    i {
+                        transform: translateZ(@var3);
+                    }
+
+                    &::before {
+                        width: @var3;
+                        content: '15,000';
+                        text-align: right;
+                    }
+
+                    &::after {
+                        height: @var3;
+                    }
+                }
+
+                .bar:nth-child(4) {
+                    i {
+                        transform: translateZ(@var4);
+                    }
+
+                    &::before {
+                        width: @var4;
+                        content: '24,000';
+                        text-align: right;
+                    }
+
+                    &::after {
+                        height: @var4;
+                    }
+                }
+
+                .bar:nth-child(5) {
+                    i {
+                        transform: translateZ(@var5);
+                    }
+
+                    &::before {
+                        width: @var5;
+                        content: '7,000';
+                        text-align: right;
+                    }
+
+                    &::after {
+                        height: @var5;
+                    }
+                }
+
+                .bar:nth-child(6) {
+                    i {
+                        transform: translateZ(@var6);
+                    }
+
+                    &::before {
+                        width: @var6;
+                        content: '7,000';
+                        text-align: right;
+                    }
+
+                    &::after {
+                        height: @var6;
+                    }
+                }
+
+                .bar:nth-child(7) {
+                    i {
+                        transform: translateZ(@var7);
+                    }
+
+                    &::before {
+                        width: @var7;
+                        content: '10,000';
+                        text-align: right;
+                    }
+
+                    &::after {
+                        height: @var7;
+                    }
+                }
+
+
+            }
+        }
+    }
+}

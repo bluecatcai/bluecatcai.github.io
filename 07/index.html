@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/caidan.css">
+</head>
+<body>
+    <div class="stage">
+        <div class="screen">
+            <div class="nav">
+                <div class="three">
+                    <div class="x"></div>
+                    <div class="y"></div>
+                    <div class="z"></div>
+                </div>
+            </div>
+            <div class="lis">
+                <div class="item">
+                    <div class=" img"></div>
+                    <div class=" pra">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class=" img"></div>
+                    <div class=" pra">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class=" img"></div>
+                    <div class=" pra">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class=" img"></div>
+                    <div class=" pra">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href=""> 路飞</a></li>
+                <li><a href=""> 山治</a></li>
+                <li><a href=""> 索隆</a></li>
+                <li><a href=""> 娜美</a></li>
+                <li><a href=""> 乔巴</a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.nav .three').onclick = function () {
+            if (document.querySelector('.screen').className == 'screen' && document.querySelector('.menu')
+                .className == 'menu') {
+                document.querySelector('.screen').className = 'screen active'
+                document.querySelector('.menu').className = 'menu active'
+
+            } else {
+                document.querySelector('.screen').className = 'screen'
+                document.querySelector('.menu').className = 'menu'
+            }
+        }
+    </script>
+
+    
+</body>
+</html>
