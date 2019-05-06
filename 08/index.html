@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="pic">
+        <li><img src="./img/a1.png" alt=""></li>
+        <li><img src="./img/a2.png" alt=""></li>
+        <li><img src="./img/a3.png" alt=""></li>
+        <li><img src="./img/a4.png" alt=""></li>
+        <li><img src="./img/a5.png" alt=""></li>
+        <li><img src="./img/a6.png" alt=""></li>
+    </div>
+
+    <div id="stage" class="stage">
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+    </div>
+
+    <style>
+        html {
+            background: #333;
+        }
+        li {
+            list-style: none;
+        }
+
+        .pic {
+            width: 600px;
+            /* background: #333; */
+            margin: 100px auto;
+        }
+
+        .pic::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .pic li {
+            overflow: hidden;
+            float: left;
+        }
+
+        .pic li img {
+            width: 200px;
+            display: block;
+
+        }
+
+        #stage {
+            width: 900px;
+            height: 510px;
+            /* background: lightblue; */
+            opacity: 0;
+            transform: scale(0.3);
+            visibility: hidden;
+            margin: 0 auto 0 -450px;
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transition: all 0.3s;
+        }
+
+        #stage.active {
+            opacity: 1;
+            transform: scale(1);
+            visibility: visible;
+
+        }
+
+        #stage i {
+            width: 300px;
+            height: 170px;
+            float: left;
+            display: block;
+            background-image: url('./img/a2.png');
+            background-size: 900px 510px;
+            transform: scale(0.8);
+            opacity: 0;
+            transition: all 0.6s cubic-bezier(0.42, 0, 0.71, 1.53);
+        }
+
+        #stage.active i {
+            opacity: 1;
+            transform: scale(1)
+        }
+
+
+
+        #stage i:nth-child(1) {
+            background-position: 0px 0px;
+        }
+
+        #stage i:nth-child(2) {
+            background-position: -300px 0px;
+        }
+
+        #stage i:nth-child(3) {
+            background-position: -600px 0px;
+        }
+
+        #stage i:nth-child(4) {
+            background-position: 0px 340px;
+        }
+
+        #stage i:nth-child(5) {
+            background-position: -300px 340px;
+        }
+
+        #stage i:nth-child(6) {
+            background-position: -600px 340px;
+        }
+
+        #stage i:nth-child(7) {
+            background-position: 0px -340px;
+        }
+
+        #stage i:nth-child(8) {
+            background-position: -300px -340px;
+        }
+
+        #stage i:nth-child(9) {
+            background-position: -600px -340px;
+        }
+    </style>
+
+
+    <script>
+        var lis = document.querySelectorAll('.pic li')
+        var cells = document.querySelectorAll('#stage i')
+        var stage = document.querySelector('#stage')
+        for (var i = 0; i < lis.length; i++) {
+           
+            lis[i].onmouseover = function () {
+                // console.log('aa')
+                this.appendChild(stage)
+                var x = this
+                // console.log(x,this)
+
+                setTimeout(function () {
+
+                    stage.className = 'active'
+                    for (var j = 0; j < cells.length; j++) {
+                        cells[j].style.backgroundImage = 'url(' + x.querySelector('img').src + ')'
+                        console.log( cells[j].style.backgroundImage)
+                    }
+                }, 10)
+            }
+
+            lis[i].onmouseout = function () {
+                stage.className = ''
+            }
+        }
+    </script>
+</body>
+
+</html>
