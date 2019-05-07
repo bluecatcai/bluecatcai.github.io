@@ -17,3 +17,5 @@
 [图片特效](https://bluecatcai.github.io/08)
 
 [倍数放大镜](https://bluecatcai.github.io/09)
+
+[注册页面](https://bluecatcai.github.io/10)
