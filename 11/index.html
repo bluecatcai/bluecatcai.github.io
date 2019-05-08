@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="01-simple.css">
+</head>
+<body>
+    <div class="top">
+        <img class="bg" src="images/lottery-turntable-bg.jpg" alt="">
+        <img class="turntable" src="images/lottery-turntable.png" alt="">
+        <img class="pointer" src="images/lottery-pointer.png" alt="">
+    </div>
+
+    <script>
+        var bg=document.getElementsByClassName('bg')[0]
+        var turntable=document.getElementsByClassName('turntable')[0]
+        var pointer=document.getElementsByClassName('pointer')[0]
+        var info={
+            code: undefined,
+            text: undefined
+        }
+        var canclick=true
+
+     
+        pointer.onclick=function(){
+       
+            if (canclick==true) {
+                canclick=false
+                turntable.style.transform='rotate(0deg)'
+                turntable.style.transition='all 0s'
+
+            setTimeout(function(){
+                var funa=Math.floor(Math.random() * 100)
+            console.log(funa);
+            
+            if (funa>=95) {
+                info.code=1
+                info.text="免单4999元"
+            } 
+            else if(funa>=90){
+                info.code=2
+                info.text="免单50元"
+            }
+            else if(funa>=80){
+                info.code=3
+                info.text="免单10元"
+            }
+            else if(funa>=70){
+                info.code=4
+                info.text="免单5元"
+            }
+            else if(funa>=60){
+                info.code=5
+                info.text="免分期服务费"
+            }
+            else if(funa>=50){
+                info.code=6
+                info.text="提高白条额度"
+            }
+            else{
+                info.code=7
+                info.text="未中奖"
+            }
+            console.log(info.code + '|' + info.text);
+            var angle = 30 + (info.code - 1) * (360 / 7) + 1080;
+            
+            turntable.style.transition='all 3s'
+            turntable.style.transform='rotate('+ angle +'deg)'
+        
+        },10)
+
+        setTimeout(function () {
+                    canclick = true;
+                    alert(info.text)
+                },3000)
+            }
+            
+        }
+            
+       
+       
+    </script>
+</body>
+</html>
